@@ -5,7 +5,7 @@ from string_utils import StringUtils
 from random import randint
 
 bot = commands.Bot(command_prefix="?")
-utils = StringUtils(dict="test.json")
+utils = StringUtils(dict="dictionary.json")
 
 @bot.event
 async def on_ready():
