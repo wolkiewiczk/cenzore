@@ -4,10 +4,8 @@ from discord.ext import commands
 from string_utils import StringUtils
 from random import randint
 
-
 bot = commands.Bot(command_prefix="?")
 utils = StringUtils(dict="test.json")
-
 
 @bot.event
 async def on_ready():
@@ -38,5 +36,11 @@ async def on_message(message):
         await bot.delete_message(message)
         await bot.send_message(message.channel, to_send)
 
-bot.run('NTA0Njk0MjY3OTAyNjg5Mjkw.DsYxvg.428e1KTf4DygHQIKmzKIV73CAys')
+try:
+    with open("token.txt", "r") as file:
+        token = file.readline().strip()
+except IOError:
+    print("Failed to run bot - token.txt file not found")
+else:
+    bot.run(token)
 
